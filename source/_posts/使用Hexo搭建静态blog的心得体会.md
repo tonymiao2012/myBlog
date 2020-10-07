@@ -36,5 +36,9 @@ hexo s                # 本地预览
 hexo clean            # 清除缓存和已生成的静态文件
 hexo help             # 帮助
 
+## FAQ
+1. CNAME被重置问题。
+在gitpages的settings里，如果CNAME在每次deploy时候被重置，需要在模板工程的/source文件夹里面，新建文件CNAME，将你的域名www.example.com 写入后保存，即可规避这个问题。
+
 ## 总结
 技术上并没有复杂的东西，就是常规的配置与托管。不过能有个码字的地方，构建自己的知识管理，还是挺开心的一件事；也算是了却了多年来的一个心愿吧！
