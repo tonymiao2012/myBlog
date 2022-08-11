@@ -5,6 +5,68 @@ categories: LeetCode
 tags: 数据结构
 ---
 
+#### 1. JS基本数据类型
+基本类型（值类型）：Number, String, Boolean, Symbol, null, undefined。在内存中占据固定大小，保存在堆栈中
+
+引用类型：Object, Function, Array, Date, RegExp, 特殊的基本包装类型（String, Number, Boolean）以及单位内置对象（Global, Math）等引用类型的值是对象 保存在对内存中，栈内存存储的是对象的变量标识符以及对象在堆内存中存储的地址。
+
+#### 2. JS中的类型检测
+
+##### typeof
+
+``` javascript
+console.log(typeof 1);               // number
+console.log(typeof true);            // boolean
+console.log(typeof 'mc');            // string
+console.log(typeof Symbol)           // function
+console.log(typeof function(){});    // function
+console.log(typeof console.log());   // undefined
+console.log(typeof []);              // object 
+console.log(typeof {});              // object
+console.log(typeof null);            // object
+console.log(typeof undefined);       // undefined
+
+```
+Pros: 能够快速区分基本的数据类型
+
+Cons: typeof不能将Object、Array、Null进行区分，返回为object
+
+##### instanceof
+
+``` javascript
+console.log(1 instanceof Number);                    // false
+console.log(true instanceof Boolean);                // false 
+console.log('str' instanceof String);                // false  
+console.log([] instanceof Array);                    // true
+console.log(function(){} instanceof Function);       // true
+console.log({} instanceof Object);                   // true
+
+```
+
+Pros: 能够区分Array, Object和Function
+
+Cons: 基本数据类型不能区分
+
+##### Object.prototype.toString.call()
+
+``` javascript
+var toString = Object.prototype.toString;
+console.log(toString.call(1));                      //[object Number]
+console.log(toString.call(true));                   //[object Boolean]
+console.log(toString.call('mc'));                   //[object String]
+console.log(toString.call([]));                     //[object Array]
+console.log(toString.call({}));                     //[object Object]
+console.log(toString.call(function(){}));           //[object Function]
+console.log(toString.call(undefined));              //[object Undefined]
+console.log(toString.call(null));                   //[object Null]
+
+```
+
+Pros: 类型的精确判断
+
+Cons: 调用方式复杂
+
+
 ``` javascript
 
 let greet = { 
